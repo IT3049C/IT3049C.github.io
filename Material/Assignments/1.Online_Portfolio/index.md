@@ -34,22 +34,19 @@ nav_order: 1
 This is a **2-parts** lab; 
 1. **Part 1:** Creating a Web Page and hosting it. ~(17 pts)~
     
-    practice creating HTML page, with CSS and checking-in your work to a GitHub Repository where you're the only collaborator.
 2. **Part 2:** Creating a Pull Request ~(3 pts)~
     
-    you'll practice creating a branch on a repository with multiple collaborators and submitting a pull request.
 
-Accept the GitHub Classroom assignment on Canvas to create a repository for you with some starter files.
 
-#### Guidelines
+
+## Instructions
+* Accept the GitHub Classroom assignment on Canvas to create a repository for you with the starter files.
 * Don't just use a online template. If you do, make sure it still satisfies the requirement below to pass the automated grading.
 * This assignment is in a lab-style. Follow the instructions step-by-step.
 * To run the automated grading checks, make sure you have installed Node.js, per the instructions posted on Canvas.
 
-
-## Instructions
-
 ## Part 1: Create a Web Page
+In this part, you'll practice creating an HTML page, styling it with CSS, and checking-in your work to a GitHub Repository where you're the only collaborator.
 
 ### Setup
 1. Accept the assignment on canvas.
@@ -142,13 +139,15 @@ Accept the GitHub Classroom assignment on Canvas to create a repository for you 
 <hr />
 
 ### Run Auto-grader checks
-If you followed the instructions properly, creating the different sections with the correct IDs, classes, and content types, you should pass the auto-grader checks.
+To run the automated grading checks, make sure you have installed Node.js, per the instructions posted on Canvas.
+
+If you followed the instructions properly, creating the different sections with the correct IDs, classes, and content types, the web pages should pass the auto-grader checks.
 1. Open your preferred command line terminal (i.e. terminal, iTerm, bash, git bash, powershell, ... etc) and navigate to the project path. 
     * remember [the `cd` command](http://www.linfo.org/cd.html) from System Admin class.
     * Using Visual Studio Code you can simply open the integrated terminal (View > Terminal) which will automatically open up at the correct project path.
         * [More info on vscode integrated terminal can be found here](https://code.visualstudio.com/docs/editor/integrated-terminal)
 
-2. install project depenedencies using the following command: `npm install`
+2. install project dependencies using the following command: `npm install`
 
 3. run the following command: `npm test`. a suite of tests will run producing results similar to the following.
 
@@ -160,7 +159,7 @@ If you followed the instructions properly, creating the different sections with 
 <hr>
 
 ## Part 2: Create Pull Request
-Creating Pull Request will come very handy when working with a team. For this part, you may use GitHub in-browser editor, or clone down the repo and make your changes locally.
+In this part, you'll practice creating a branch on a repository with multiple collaborators and submitting a pull request. Creating Pull Request will come very handy when working with a team. For this part, you may use GitHub in-browser editor, or clone down the repo and make your changes locally.
 
 1. On [this Repository (https://github.com/IT3049C/students)](https://github.com/IT3049C/students), Fork the repository using button on the top right.
     * <img alt="fork button" style="height: 60px;" src="assets/forkbtn.png"/>
