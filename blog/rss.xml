@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0">
     <channel>
         <title>IT3049C - Web Game Development Blog</title>
         <link>https://it3049c.github.io/blog</link>
         <description>IT3049C - Web Game Development Blog</description>
-        <lastBuildDate>Wed, 12 Jan 2022 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 13 Jan 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
-            <title><![CDATA[Welcome]]></title>
-            <link>https://it3049c.github.io/blog/welcome</link>
-            <guid>welcome</guid>
-            <pubDate>Wed, 12 Jan 2022 00:00:00 GMT</pubDate>
-            <description><![CDATA[Nothing has been posted here yet]]></description>
-            <content:encoded><![CDATA[<p>Nothing has been posted here yet</p>]]></content:encoded>
+            <title><![CDATA[Visual Studio Code Settings and Extensions Sync]]></title>
+            <link>https://it3049c.github.io/blog/vscode-extensions</link>
+            <guid>vscode-extensions</guid>
+            <pubDate>Thu, 13 Jan 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[In my demo videos, you may notice that my Visual Studio Code IDE, provides with me with a lot of cheaters, helpers, and utilities that makes development a little easier.]]></description>
         </item>
     </channel>
 </rss>
