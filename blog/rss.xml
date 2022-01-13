@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>IT3049C - Web Game Development Blog</title>
+        <link>https://it3049c.github.io/blog</link>
+        <description>IT3049C - Web Game Development Blog</description>
+        <lastBuildDate>Wed, 12 Jan 2022 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[Welcome]]></title>
+            <link>https://it3049c.github.io/blog/welcome</link>
+            <guid>welcome</guid>
+            <pubDate>Wed, 12 Jan 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Nothing has been posted here yet]]></description>
+            <content:encoded><![CDATA[<p>Nothing has been posted here yet</p>]]></content:encoded>
+        </item>
+    </channel>
+</rss>
