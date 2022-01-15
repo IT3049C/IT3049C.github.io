@@ -2,11 +2,23 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://it3049c.github.io/blog</id>
     <title>IT3049C - Web Game Development Blog</title>
-    <updated>2022-01-13T00:00:00.000Z</updated>
+    <updated>2022-01-14T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://it3049c.github.io/blog"/>
     <subtitle>IT3049C - Web Game Development Blog</subtitle>
     <icon>https://it3049c.github.io/img/favicon.png</icon>
+    <entry>
+        <title type="html"><![CDATA[Updating the README assignment checks badge]]></title>
+        <id>github-actions-badge</id>
+        <link href="https://it3049c.github.io/blog/github-actions-badge"/>
+        <updated>2022-01-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[In some of the assignments, you may be asked to update the badge link on the repository README file.]]></summary>
+        <content type="html"><![CDATA[<p>In some of the assignments, you may be asked to update the badge link on the repository README file. </p><ul><li>Click on the <strong>Actions</strong> Tab at the top of your repository.<ul><li><img src="assets/image001.png" alt="image001"/></li></ul></li><li>Navigate to the <strong>Assignment Checks</strong> action job.<ul><li><img src="assets/image002.png" alt="image002"/></li></ul></li><li>Copy the badge.<ul><li><img src="assets/image003.png" alt="image003"/></li></ul></li></ul><p>P.S.: In most assignments, I created a small script that automatically updates the link for you when you install the repository&#x27;s dependencies using <code>npm install</code></p>]]></content>
+        <author>
+            <name>Yahya Gilany</name>
+            <uri>https://yahya-gilany.com</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Visual Studio Code Settings and Extensions Sync]]></title>
         <id>vscode-extensions</id>

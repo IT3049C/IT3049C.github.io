@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>IT3049C - Web Game Development Blog</title>
         <link>https://it3049c.github.io/blog</link>
         <description>IT3049C - Web Game Development Blog</description>
-        <lastBuildDate>Thu, 13 Jan 2022 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 14 Jan 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[Updating the README assignment checks badge]]></title>
+            <link>https://it3049c.github.io/blog/github-actions-badge</link>
+            <guid>github-actions-badge</guid>
+            <pubDate>Fri, 14 Jan 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[In some of the assignments, you may be asked to update the badge link on the repository README file.]]></description>
+            <content:encoded><![CDATA[<p>In some of the assignments, you may be asked to update the badge link on the repository README file. </p><ul><li>Click on the <strong>Actions</strong> Tab at the top of your repository.<ul><li><img src="assets/image001.png" alt="image001"/></li></ul></li><li>Navigate to the <strong>Assignment Checks</strong> action job.<ul><li><img src="assets/image002.png" alt="image002"/></li></ul></li><li>Copy the badge.<ul><li><img src="assets/image003.png" alt="image003"/></li></ul></li></ul><p>P.S.: In most assignments, I created a small script that automatically updates the link for you when you install the repository&#x27;s dependencies using <code>npm install</code></p>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Visual Studio Code Settings and Extensions Sync]]></title>
             <link>https://it3049c.github.io/blog/vscode-extensions</link>
