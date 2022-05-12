@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksite=self.webpackChunksite||[]).push([[2495],{2813:function(s){s.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"syllabus"}')}}]);
