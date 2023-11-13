@@ -1,11 +1,11 @@
-// @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
+// const lightCodeTheme = require('prism-react-renderer/themes/github');
+// const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+import {themes as prismThemes} from 'prism-react-renderer';
+import type {Config} from '@docusaurus/types';
+import type * as Preset from '@docusaurus/preset-classic';
 
-/** @type {import('@docusaurus/types').Config} */
-const config = {
+const config: Config = {
   title: 'IT3049C - Web Game Development',
   tagline: 'Yahya Gilany',
   url: 'https://it3049c.github.io/',
@@ -17,13 +17,20 @@ const config = {
   projectName: 'IT3049C.github.io', // Usually your repo name.
   deploymentBranch: 'gh-pages',
 
+  // Even if you don't use internationalization, you can use this field to set
+  // useful metadata like html lang. For example, if your site is Chinese, you
+  // may want to replace "en" with "zh-Hans".
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
+  },
+
   presets: [
     [
       'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      {
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           editUrl: 'https://github.com/IT3049C/IT3049C.github.io/tree/main/',
         },
@@ -34,9 +41,9 @@ const config = {
             'https://github.com/IT3049C/IT3049C.github.io/tree/main/',
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: './src/css/custom.css',
         },
-      }),
+      } satisfies Preset.Options,
     ],
   ],
 
@@ -44,7 +51,6 @@ const config = {
     '@docusaurus/theme-live-codeblock',
     [
       'content-docs',
-      /** @type {import('@docusaurus/plugin-content-docs').Options} */
       ({
         id: 'syllabus',
         path: 'content/syllabus',
@@ -59,7 +65,6 @@ const config = {
     ],
     [
       'content-docs',
-      /** @type {import('@docusaurus/plugin-content-docs').Options} */
       ({
         id: 'labs',
         path: 'content/coursework',
@@ -79,8 +84,7 @@ const config = {
   ],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
+    {
       liveCodeBlock: {
         /**
          * The position of the live playground, above or under the editor
@@ -191,10 +195,10 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Yahya Gilany. Built with Docusaurus.`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: prismThemes.github,
+        darkTheme: prismThemes.dracula,
       },
-    }),
+    } satisfies Preset.ThemeConfig,
 
 
 };
