@@ -92,14 +92,14 @@ const config: Config = {
          */
         playgroundPosition: 'bottom',
       },
-      // announcementBar: {
-      //   id: 'support_us',
-      //   content:
-      //     'We are looking to revamp our docs, please fill <a target="_blank" rel="noopener noreferrer" href="#">this survey</a>',
-      //   backgroundColor: '#880000',
-      //   textColor: '#ffffff',
-      //   isCloseable: false,
-      // },
+      announcementBar: {
+        id: 'welcome-bar',
+        content:
+          '<b>Welcome to Spring 2024! 🎉🎉🎉</b>',
+        backgroundColor: '#880000',
+        textColor: '#ffffff',
+        isCloseable: false,
+      },
       navbar: {
         title: 'IT3049C - Gilany',
         logo: {
