@@ -17,7 +17,7 @@ const FeatureList = [
     Svg: require('../../static/img/home/undraw_game_world_-0-o6q.svg').default,
     description: (
       <>
-        We;ll learn web development practices in the context of playing games
+        We'll learn web development practices in the context of playing games
       </>
     ),
   },

@@ -105,7 +105,7 @@ const config: Config = {
         logo: {
           alt: 'My Site Logo',
           src: 'img/javascript.svg',
-        }, 
+        },
         items: [
           {
             to: '/syllabus/info',
@@ -116,13 +116,13 @@ const config: Config = {
             label: 'Coursework',
           },
           {
-            to: '/blog', 
-            label: 'Blog', 
+            to: '/blog',
+            label: 'Blog',
             position: 'left'
           },
           {
-            to: '/docs/course-notes', 
-            label: 'Course Notes', 
+            to: '/docs/course-notes',
+            label: 'Course Notes',
             position: 'left'
           },
           {
@@ -192,7 +192,7 @@ const config: Config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Yahya Gilany. Built with Docusaurus.`,
+        copyright: `<p><span>IT3049C - Web Game Development</span> by <a href="https://yahyagilany.io/">Yahya Gilany</a> is licensed under <a style="display: inline-block;" href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="noopener">CC BY-NC-ND 4.0<img style="height: 22px!important; margin-left: 3px; vertical-align: text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height: 22px!important; margin-left: 3px; vertical-align: text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height: 22px!important; margin-left: 3px; vertical-align: text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" /><img style="height: 22px!important; margin-left: 3px; vertical-align: text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" /></a></p>`,
       },
       prism: {
         theme: prismThemes.github,
