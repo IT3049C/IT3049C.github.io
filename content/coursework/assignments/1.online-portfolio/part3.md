@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2.3
 sidebar_label: Finalize
+slug: finalize
 title: Finalize and Submit the assignment
 ---
 
