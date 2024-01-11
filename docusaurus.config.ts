@@ -102,7 +102,7 @@ const config: Config = {
       ({
         id: 'other',
         path: 'content/other',
-        routeBasePath: 'other',
+        routeBasePath: '/',
         editUrl: 'https://github.com/IT3049C/IT3049C.github.io/tree/main/',
         editCurrentVersion: true,
         remarkPlugins: [require('mdx-mermaid')],
