@@ -118,6 +118,11 @@ const config: Config = {
 
   themeConfig:
     {
+      colorMode: {
+        defaultMode: 'light',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
       liveCodeBlock: {
         /**
          * The position of the live playground, above or under the editor
