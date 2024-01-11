@@ -30,15 +30,21 @@ const config: Config = {
       'classic',
       {
         docs: {
-          sidebarPath: './sidebars.ts',
+          sidebarPath: 'docs/ta/sidebarsTA.ts',
           // Please change this to your repo.
+          path: 'docs/ta',
+          routeBasePath: 'ta',
           editUrl: 'https://github.com/IT3049C/IT3049C.github.io/tree/main/',
+          remarkPlugins: [require('mdx-mermaid')],
+          rehypePlugins: [],
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/IT3049C/IT3049C.github.io/tree/main/',
+          editUrl:'https://github.com/IT3049C/IT3049C.github.io/tree/main/',
+          blogSidebarCount: 'ALL',
+          blogSidebarTitle: 'All posts',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -52,12 +58,12 @@ const config: Config = {
     [
       'content-docs',
       ({
-        id: 'syllabus',
-        path: 'content/syllabus',
-        routeBasePath: 'syllabus',
+        id: 'course-notes',
+        path: 'content/course-notes',
+        routeBasePath: 'course-notes',
         editUrl: 'https://github.com/IT3049C/IT3049C.github.io/tree/main/',
         editCurrentVersion: true,
-        sidebarPath: require.resolve('./content/syllabus/sidebarsSyllabus.js'),
+        sidebarPath: 'content/course-notes/sidebars.ts',
         remarkPlugins: [require('mdx-mermaid')],
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
@@ -66,12 +72,39 @@ const config: Config = {
     [
       'content-docs',
       ({
-        id: 'labs',
-        path: 'content/coursework',
-        routeBasePath: 'coursework',
-        editUrl: 'https://github.com/IT4063C/IT4063C.github.io/tree/main/',
+        id: 'assignments',
+        path: 'content/assignments',
+        routeBasePath: 'assignments',
+        editUrl: 'https://github.com/IT3049C/IT3049C.github.io/tree/main/',
         editCurrentVersion: true,
-        sidebarPath: require.resolve('./content/coursework/sidebarsCoursework.js'),
+        sidebarPath: 'content/assignments/sidebars.ts',
+        remarkPlugins: [require('mdx-mermaid')],
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+      }),
+    ],
+    [
+      'content-docs',
+      ({
+        id: 'syllabus',
+        path: 'content/syllabus',
+        routeBasePath: 'syllabus',
+        editUrl: 'https://github.com/IT3049C/IT3049C.github.io/tree/main/',
+        editCurrentVersion: true,
+        sidebarPath: 'content/syllabus/sidebarsSyllabus.ts',
+        remarkPlugins: [require('mdx-mermaid')],
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+      }),
+    ],
+    [
+      'content-docs',
+      ({
+        id: 'other',
+        path: 'content/other',
+        routeBasePath: 'other',
+        editUrl: 'https://github.com/IT3049C/IT3049C.github.io/tree/main/',
+        editCurrentVersion: true,
         remarkPlugins: [require('mdx-mermaid')],
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
@@ -109,31 +142,19 @@ const config: Config = {
         items: [
           {
             to: '/syllabus/info',
-            label: 'Syllabus',
+            label: "📚 Syllabus",
           },
           {
-            to: '/coursework',
-            label: 'Coursework',
+            to: "/course-notes",
+            label: "📝 Course Notes",
+          },
+          {
+            to: "/assignments",
+            label: "💯 Assignments",
           },
           {
             to: '/blog',
-            label: 'Blog',
-            position: 'left'
-          },
-          {
-            to: '/docs/course-notes',
-            label: 'Course Notes',
-            position: 'left'
-          },
-          {
-            href: 'https://ygilany-solution-access.herokuapp.com',
-            label: 'Solutions Access',
-            position: 'right',
-          },
-          {
-            href: 'https://it3049c.github.io/students/',
-            label: 'Students',
-            position: 'right',
+            label: "🌐 Blog",
           },
         ],
       },
@@ -148,8 +169,12 @@ const config: Config = {
                 to: '/syllabus/info',
               },
               {
-                label: 'Coursework',
-                to: '/coursework',
+                label: 'assignments',
+                to: '/assignments',
+              },
+              {
+                label: "Credits",
+                to: "/credits",
               },
             ],
           },
@@ -158,11 +183,11 @@ const config: Config = {
             items: [
               {
                 label: 'MS Teams',
-                href: 'https://teams.microsoft.com/l/channel/19%3a30e5da231a654578a9f04859d49dc410%40thread.tacv2/%25F0%259F%2586%2598%2520Help%2520-%2520Ask%2520Questions?groupId=24ca8848-d758-42dc-9a5f-85467f5ded68&tenantId=f5222e6c-5fc6-48eb-8f03-73db18203b63',
+                href: 'https://teams.microsoft.com/l/channel/19%3Accd1b5e4663a49f3bdb5b693d7bf27de%40thread.tacv2/%F0%9F%99%8B%E2%80%8D%E2%99%82%EF%B8%8F%F0%9F%99%8B%E2%80%8D%E2%99%80%EF%B8%8F%20Students%20Hub?groupId=b70f39af-6f97-4973-8c01-6bef019da7eb&tenantId=f5222e6c-5fc6-48eb-8f03-73db18203b63',
               },
               {
                 label: '⏰ Scheduler',
-                href: 'https://outlook.office365.com/owa/calendar/OfficeHours@mailuc.onmicrosoft.com/bookings/s/EjGKKRXxgE6Ppb4z3AH9lg2',
+                href: 'https://outlook.office.com/bookwithme/user/51a66b9182c440388f473454d11f6654@ucmail.uc.edu?anonymous&ep=plink',
               },
               {
                 label: '✉️ Email',
@@ -174,21 +199,17 @@ const config: Config = {
             title: 'More',
             items: [
               {
-                label: 'Solutions Access',
-                href: 'https://ygilany-solution-access.herokuapp.com',
-              },
-              {
                 label: 'Classwork Repo',
-                href: 'https://github.com/Ygilany/spring22-classwork',
+                href: 'https://github.com/IT3049C-Spring24/classwork',
               },
               {
-                label: 'GitHub Organization',
-                href: 'https://github.com/IT3049C/',
+                label: "GitHub Organization",
+                href: "https://github.com/IT3049C/",
               },
               {
-                label: 'GitHub Assignment',
-                href: 'https://github.com/IT3049C-Students',
-              },
+                label: 'GitHub Student Organization',
+                href: 'https://github.com/IT3049C-Spring24/',
+              }
             ],
           },
         ],

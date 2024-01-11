@@ -2,7 +2,6 @@
 sidebar_position: 3
 title: JavaScript Re-introduction
 ---
-##
 
 - [Review Week2 Classwork](https://github.com/Ygilany/spring22-classwork/tree/week2)
   - the `index.html` files loads all the `*.js` files in the slides directory
