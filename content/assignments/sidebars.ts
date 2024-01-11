@@ -17,11 +17,6 @@ const sidebars: SidebarsConfig = {
   assignments: [
     "index",
     {
-      type: `doc`,
-      label: `Hello GitHub - Lab`,
-      id: `hello-world/index`,
-    },
-    {
       type: `category`,
       label: `1. Online Portfolio`,
       link: {
@@ -34,6 +29,11 @@ const sidebars: SidebarsConfig = {
           dirName: `1.online-portfolio`,
         },
       ],
+    },
+    {
+      type: `doc`,
+      label: `2. Hello GitHub - Lab`,
+      id: `hello-world/index`,
     },
     // {
     //   type: `category`,
