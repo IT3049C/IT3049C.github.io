@@ -7,7 +7,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 
-# Bringing it to life
 Before we start Building the application code, we need to fully imagine and visualize the process/workflow.
 * Getting messages:
     * Get/Query/Fetch all the messages from the server.
@@ -17,12 +16,17 @@ Before we start Building the application code, we need to fully imagine and visu
     * Get the user's name from the input field in the header.
     * Send the message in the format that the API is expecting.
 
+In this part, we'll mock/fake the server and the API to focus on the client-side code.
+
 ## Getting Messages:
-1. Create references to the HTML elements that we’ll need.
+1. **Create references to the HTML elements that we'll need.**
     * nameInput
     * messageInput
     * sendButton
     * chatBox
+
+<details>
+  <summary markdown="span"><strong>💰 Solution (don't open until you really have to)...</strong></summary>
 
 ```js
 const nameInput = document.getElementById("my-name-input");
@@ -30,9 +34,100 @@ const myMessage = document.getElementById("my-message");
 const sendButton = document.getElementById("send-button");
 const chatBox = document.getElementById("chat");
 ```
+</details>
 
-2. Create an `updateMessagesInChatBox()` function. This function will:
-    * fetch messages from server - `fetchMessages()`
+---
+
+2. **Create a function that will take a message object as a function argument and <u>*return*</u> `HTML` that will be added to the chatbox.**
+  * The JSON structure of the message object is as follows:
+    ```json
+    {
+        "id": 1,
+        "text": "This is my message",
+        "sender": "Yahya Gilany",
+        "timestamp": 1537410673072
+    }
+    ```
+  * Review the HTML code in the previous part to see how the message should be formatted.
+  * compare the value of the `messages.sender` and the text input field, `my-name-input`:
+    * if it's the same, then use the class `mine` around the message div.
+    * if it's not the same, use the class `yours` around the message div.
+  * the function will need to parse the timestamp to a readable format.
+    * Obviously, `1537410673072` is not a readable format
+    * You may need to review the `Date` object in JavaScript to see how to parse the timestamp. You can find that on MDN at [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+  <details>
+  <summary markdown="span"><strong>💰 Solution (don't open until you really have to)...</strong></summary>
+
+```js
+function formatMessage(message, myNameInput) {
+  const time = new Date(message.timestamp);
+  const formattedTime = `${time.getHours()}:${time.getMinutes()}`;
+
+  if (myNameInput === message.sender) {
+    return `
+      <div class="mine messages">
+        <div class="message">
+          ${message.text}
+        </div>
+        <div class="sender-info">
+          ${formattedTime}
+        </div>
+      </div>
+    `
+  } else {
+    return `
+      <div class="yours messages">
+        <div class="message">
+          ${message.text}
+        </div>
+        <div class="sender-info">
+          ${message.sender} ${formattedTime}
+        </div>
+      </div>
+    `
+  }
+}
+```
+</details>
+
+---
+
+3. **Because we'll be mocking some of the server and API calls, create a function named `fetchMessages()` that will return an array of messages.**
+
+<details>
+  <summary markdown="span"><strong>💰 Solution (don't open until you really have to)...</strong></summary>
+
+```js
+function fetchMessages() {
+  return [
+    {
+      id: 1,
+      text: "This is my message",
+      sender: "Yahya Gilany",
+      timestamp: 1537410673072
+    },
+    {
+      id: 2,
+      text: "This is another message",
+      sender: "Yahya Gilany",
+      timestamp: 1537410673072
+    },
+    {
+      id: 3,
+      text: "This is a message from someone else",
+      sender: "Someone Else",
+      timestamp: 1537410673072
+    }
+  ];
+}
+```
+</details>
+
+---
+
+4. **Create a function `updateMessagesInChatBox()` that would use the array returned from `fetchMessages()` and formats them using the `formatMessage()` and injects the resulting response into the UI.**
+    * create an array of chat messages objects. and wrap it in a function named  fetch messages from server - `fetchMessages()`
     * loop over the recieved messages to convert them to `html` elements - `formatMessages()`
         * the function will mark the messages as (incoming/outgoing) or (yours/anyone else's) based on the sender name in the textbox.
     * Add the formatted messages to the chatbox. - `updateChatBox()`
@@ -40,183 +135,72 @@ const chatBox = document.getElementById("chat");
 
     ```js
     function updateMessages() {
-        // Fetch Messages
-        // Loop over the messages. Inside the loop we will
-            // get each message
-            // format it
-            // add it to the chatbox
-    }
-    ```
-
-4. Create a function that uses the FetchAPI to requests messages from the server.
-    * URL to the Server is [https://it3049c-chat.fly.dev](https://it3049c-chat.fly.dev)
-    * URL to the link to get the messages is [https://it3049c-chat.fly.dev/messages](https://it3049c-chat.fly.dev/messages)
-    * sometime, the server might be idle and would take a few minutes to wake up again.
-
-    ```js
-    const serverURL = `https://it3049c-chat.fly.dev/messages`;
-
-    function fetchMessages() {
-        return fetch(serverURL)
-            .then( response => response.json())
-    }
-    ```
-
-5. Call `fetchMessages()` from `updateMessages()`
-    * Notice, because `fetchMessages()` is an asyncronous function that returns a promise rather then the actual result, I had to make `updateMessages()` an `async` function as well and instruct it to await the results from `fetchMessages()`.
-
-    ```js
-    async function updateMessages() {
-        // Fetch Messages
-        const messages = await fetchMessages();
-
-        // Loop over the messages. Inside the loop we will
-            // get each message
-            // format it
-            // add it to the chatbox
-    }
-    ```
-    * try to log the `messages` variable to the console to confirm the structure of each message looks like this
-
-    ```json
-    {
-        "id": 1,
-        "text": "This is my message",
-        "timestamp": 1537410673072
-    }
-    ```
-
-6. Create a formatter function that will take the `message` object and the username `my-name-input` (from the text field) as parameters and return `HTML`.
-    * the function will need to parse the timestamp to a readable format.
-        * Obviously, `1537410673072` is not a readable format
-    * compare the value of the `messages.sender` and the text input field, `my-name-input`:
-        * if it's the same, then use the class `mine` around the message div.
-        * if it's not the same, use the class `yours` around the message div.
-
-    ```js
-    function formatMessage(message, myNameInput) {
-        const time = new Date(message.timestamp);
-        const formattedTime = `${time.getHours()}:${time.getMinutes()}`;
-
-        if (myNameInput === message.sender) {
-            return `
-            <div class="mine messages">
-                <div class="message">
-                    ${message.text}
-                </div>
-                <div class="sender-info">
-                    ${formattedTime}
-                </div>
-            </div>
-            `
-        } else {
-            return `
-                <div class="yours messages">
-                    <div class="message">
-                        ${message.text}
-                    </div>
-                    <div class="sender-info">
-                        ${message.sender} ${formattedTime}
-                    </div>
-                </div>
-            `
-        }
-    }
-    ```
-
-7. Now we loop over the array of the messages, format them and add them to the chatbox.
-
-```js
-async function updateMessages() {
-    // Fetch Messages
-    const messages = await fetchMessages();
-    // Loop over the messages. Inside the loop we will:
+      // Fetch Messages
+      // Loop over the messages. Inside the loop we will
         // get each message
         // format it
-        // add it to the chatbox
-    let formattedMessages = "";
-    messages.forEach(message => {
-        formattedMessages += formatMessage(message, nameInput.value);
-    });
-    chatBox.innerHTML = formattedMessages;
+        // add it to the chatbox using DOM manipulation
+    }
+    ```
+:::note
+You may combine the formatted messages as a single HTML string and inject it, using `innerHTML` into the chatbox.
+**OR**
+You may create a multiple fragments and append them into the chatbox
+:::
+
+<details>
+  <summary markdown="span"><strong>💰 Solution (don't open until you really have to)...</strong></summary>
+
+```js
+function updateMessages() {
+  const messages = fetchMessages();
+  let formattedMessages = "";
+  messages.forEach(message => {
+      formattedMessages += formatMessage(message, nameInput.value);
+  });
+  chatBox.innerHTML = formattedMessages;
 }
 ```
-8. We need to make sure the function is called.
-    * otherwise, we won't see any difference.
+</details>
+
+---
+
+5. **We need to make sure the function is called.**
+    * otherwise, we won't see any difference. :)
 
 ```js
 updateMessages()
 ```
 
-9. Use `setInterval()` to call this function once every 10 seconds to keep the new messages coming.
-
-    ```js
-    setInterval(updateMessages, 10000);
-    ```
-    * the number `10000` in this scenario is what we refer to as a magic number. it's a value of some significance but someone looking at this may not easily understand what this value is
-        * we like to set this value to a variable to make this a bit more readable.
-    ```js
-    const MILLISECONDS_IN_TEN_SECONDS = 10000;
-    setInterval(updateMessages, MILLISECONDS_IN_TEN_SECONDS);
-    ```
+---
 
 ## Sending Messages
-1. Create a send function that would:
-    * take the username, and message text as parameter
-    * construct a json object with the following properties `sender`, `text`, and `timestamp`
-    * send messages to the server here
 
-<Tabs>
-<TabItem value="fetch" label="using Fetch API">
+Again we're continuing to mock the server and API calls and we're just focusing on the client-side code of manipulating the DOM.
 
-```js
-function sendMessages(username, text) {
-    const newMessage = {
-        sender: username,
-        text: text,
-        timestamp: new Date()
-    }
+1. **Create a send function.**
+  * take the username, and message text as function arguments
+  * construct a json object with the following properties `sender`, `text`, and `timestamp`
+  * add the message to the chatbox
 
-    fetch (serverURL, {
-        method: `POST`,
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newMessage)
-    });
-}
-```
-</TabItem>
+---
 
-<TabItem value="jquery" label="Using JQuery">
+2. **create an Event Listener to listen to the `click` event on the send button.**
+  * Call the `sendMessages()` function, passing the values of the appropriate fields.
+  * clear the message text field
 
-```js
-function sendMessages(username, text) {
-    const newMessage = {
-        sender: username,
-        text: text,
-        timestamp: new Date()
-    }
 
-    $.post(serverURL, newMessage);
-}
-```
-</TabItem>
-</Tabs>
-
-2. create an Event Listener to listen to the `click` event on the send button. This event handler will:
-    * send the message to the server and clear the text field to prepare for a new message to be sent
-    * clear the message text field
+<details>
+  <summary markdown="span"><strong>💰 Solution (don't open until you really have to)...</strong></summary>
 
 ```js
 sendButton.addEventListener("click", function(sendButtonClickEvent) {
-    sendButtonClickEvent.preventDefault();
-    const sender = nameInput.value;
-    const message = myMessage.value;
+  sendButtonClickEvent.preventDefault();
+  const sender = nameInput.value;
+  const message = myMessage.value;
 
-    sendMessages(sender,message);
-    myMessage.value = "";
+  sendMessages(sender,message);
+  myMessage.value = "";
 });
 ```
-
-**Next: [Hosting and Submission](finalize)**
+</details>
