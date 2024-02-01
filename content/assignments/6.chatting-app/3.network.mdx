@@ -2,81 +2,75 @@
 sidebar_position: 4
 title: 'Part 3: Networking'
 sidebar_label: Networking
-draft: true
+draft: false
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 
-# Bringing it to life
-Before we start Building the application code, we need to fully imagine and visualize the process/workflow.
-* Getting messages:
-    * Get/Query/Fetch all the messages from the server.
-    * Parse and format the messages to present them on the screen.
-    * Continuously Fetch the messages from the server to keep the messages up-to-date.
-* Sending messages:
-    * Get the user's name from the input field in the header.
-    * Send the message in the format that the API is expecting.
+No we're ready to provide the correct implementation for the `fetchMessages()` function and the `sendMessages()` function.
 
 ## Getting Messages:
-1. Create references to the HTML elements that we’ll need.
-    * nameInput
-    * messageInput
-    * sendButton
-    * chatBox
 
-```js
-const nameInput = document.getElementById("my-name-input");
-const myMessage = document.getElementById("my-message");
-const sendButton = document.getElementById("send-button");
-const chatBox = document.getElementById("chat");
-```
-
-2. Create an `updateMessagesInChatBox()` function. This function will:
-    * fetch messages from server - `fetchMessages()`
-    * loop over the recieved messages to convert them to `html` elements - `formatMessages()`
-        * the function will mark the messages as (incoming/outgoing) or (yours/anyone else's) based on the sender name in the textbox.
-    * Add the formatted messages to the chatbox. - `updateChatBox()`
-        * OR more accuretly, clear and the chatbox and insert the newly formatted messages.
-
-    ```js
-    function updateMessages() {
-        // Fetch Messages
-        // Loop over the messages. Inside the loop we will
-            // get each message
-            // format it
-            // add it to the chatbox
-    }
-    ```
-
-4. Create a function that uses the FetchAPI to requests messages from the server.
+1. Update the `fetchMessages()` function to use the `fetch` API to get the messages from the server.
+    * You'll need to remove the hardcoded array of images and replace it with a call to the server.
     * URL to the Server is [https://it3049c-chat.fly.dev](https://it3049c-chat.fly.dev)
     * URL to the link to get the messages is [https://it3049c-chat.fly.dev/messages](https://it3049c-chat.fly.dev/messages)
     * sometime, the server might be idle and would take a few minutes to wake up again.
 
-    ```js
-    const serverURL = `https://it3049c-chat.fly.dev/messages`;
+<details>
+  <summary markdown="span"><strong>💰 Solution (don't open until you really have to)...</strong></summary>
 
-    function fetchMessages() {
-        return fetch(serverURL)
-            .then( response => response.json())
-    }
-    ```
+Using Fetch API
+<Tabs>
+    <TabItem value="fetch" label="with `.then` callbacks">
 
-5. Call `fetchMessages()` from `updateMessages()`
-    * Notice, because `fetchMessages()` is an asyncronous function that returns a promise rather then the actual result, I had to make `updateMessages()` an `async` function as well and instruct it to await the results from `fetchMessages()`.
+```js
+const serverURL = `https://it3049c-chat.fly.dev/messages`;
 
-    ```js
-    async function updateMessages() {
-        // Fetch Messages
-        const messages = await fetchMessages();
+function fetchMessages() {
+    return fetch(serverURL)
+        .then( response => response.json())
+}
+```
 
-        // Loop over the messages. Inside the loop we will
-            // get each message
-            // format it
-            // add it to the chatbox
-    }
-    ```
+    </TabItem>
+
+    <TabItem value="jquery" label="with async/await">
+
+```js
+const serverURL = `https://it3049c-chat.fly.dev/messages`;
+
+function fetchMessages() {
+    const response = await fetch(serverURL);
+    return response.json();
+}
+```
+
+    </TabItem>
+</Tabs>
+
+</details>
+
+---
+
+2. Where we're calling `fetchMessages()` in the `updateMessages()`, we need to make sure the function is `async` and we `await` the result from `fetchMessages()`.
+
+<details>
+  <summary markdown="span"><strong>💰 Solution (don't open until you really have to)...</strong></summary>
+
+```js
+async function updateMessages() {
+    // Fetch Messages
+    const messages = await fetchMessages();
+
+    // Loop over the messages. Inside the loop we will
+        // get each message
+        // format it
+        // add it to the chatbox
+}
+```
+</details>
     * try to log the `messages` variable to the console to confirm the structure of each message looks like this
 
     ```json
@@ -86,70 +80,17 @@ const chatBox = document.getElementById("chat");
         "timestamp": 1537410673072
     }
     ```
+---
 
-6. Create a formatter function that will take the `message` object and the username `my-name-input` (from the text field) as parameters and return `HTML`.
-    * the function will need to parse the timestamp to a readable format.
-        * Obviously, `1537410673072` is not a readable format
-    * compare the value of the `messages.sender` and the text input field, `my-name-input`:
-        * if it's the same, then use the class `mine` around the message div.
-        * if it's not the same, use the class `yours` around the message div.
-
-    ```js
-    function formatMessage(message, myNameInput) {
-        const time = new Date(message.timestamp);
-        const formattedTime = `${time.getHours()}:${time.getMinutes()}`;
-
-        if (myNameInput === message.sender) {
-            return `
-            <div class="mine messages">
-                <div class="message">
-                    ${message.text}
-                </div>
-                <div class="sender-info">
-                    ${formattedTime}
-                </div>
-            </div>
-            `
-        } else {
-            return `
-                <div class="yours messages">
-                    <div class="message">
-                        ${message.text}
-                    </div>
-                    <div class="sender-info">
-                        ${message.sender} ${formattedTime}
-                    </div>
-                </div>
-            `
-        }
-    }
-    ```
-
-7. Now we loop over the array of the messages, format them and add them to the chatbox.
-
-```js
-async function updateMessages() {
-    // Fetch Messages
-    const messages = await fetchMessages();
-    // Loop over the messages. Inside the loop we will:
-        // get each message
-        // format it
-        // add it to the chatbox
-    let formattedMessages = "";
-    messages.forEach(message => {
-        formattedMessages += formatMessage(message, nameInput.value);
-    });
-    chatBox.innerHTML = formattedMessages;
-}
-```
-8. We need to make sure the function is called.
+3. We need to make sure the function is called at least once when the page loads. We can do this by calling the function at the end of the script.
     * otherwise, we won't see any difference.
 
 ```js
 updateMessages()
 ```
+---
 
-9. Use `setInterval()` to call this function once every 10 seconds to keep the new messages coming.
+4. Use `setInterval()` to call this function once every 10 seconds to keep the new messages coming.
 
     ```js
     setInterval(updateMessages, 10000);
@@ -167,8 +108,9 @@ updateMessages()
     * construct a json object with the following properties `sender`, `text`, and `timestamp`
     * send messages to the server here
 
-<Tabs>
-<TabItem value="fetch" label="using Fetch API">
+<details>
+  <summary markdown="span"><strong>💰 Solution (don't open until you really have to)...</strong></summary>
+
 
 ```js
 function sendMessages(username, text) {
@@ -187,37 +129,4 @@ function sendMessages(username, text) {
     });
 }
 ```
-</TabItem>
-
-<TabItem value="jquery" label="Using JQuery">
-
-```js
-function sendMessages(username, text) {
-    const newMessage = {
-        sender: username,
-        text: text,
-        timestamp: new Date()
-    }
-
-    $.post(serverURL, newMessage);
-}
-```
-</TabItem>
-</Tabs>
-
-2. create an Event Listener to listen to the `click` event on the send button. This event handler will:
-    * send the message to the server and clear the text field to prepare for a new message to be sent
-    * clear the message text field
-
-```js
-sendButton.addEventListener("click", function(sendButtonClickEvent) {
-    sendButtonClickEvent.preventDefault();
-    const sender = nameInput.value;
-    const message = myMessage.value;
-
-    sendMessages(sender,message);
-    myMessage.value = "";
-});
-```
-
-**Next: [Hosting and Submission](finalize)**
+</details>
