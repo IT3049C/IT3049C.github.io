@@ -16,15 +16,15 @@
             <description><![CDATA[What is Phaser?]]></description>
             <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="what-is-phaser">What is Phaser?<a href="https://it3049c.github.io/blog/phaser-vscode-intellisense#what-is-phaser" class="hash-link" aria-label="Direct link to What is Phaser?" title="Direct link to What is Phaser?">​</a></h3>
 <blockquote>
-<p>"Phaser is a fast, free, and fun open source HTML5 game framework that offers WebGL and Canvas rendering across desktop and mobile web browsers. Games can be compiled to iOS, Android and native apps by using 3rd party tools. You can use JavaScript or TypeScript for development."<sup><a href="https://it3049c.github.io/blog/phaser-vscode-intellisense#user-content-fn-(1)-261cfa" id="user-content-fnref-(1)-261cfa" data-footnote-ref="true" aria-describedby="footnote-label">1</a></sup></p>
+<p>"Phaser is a fast, free, and fun open source HTML5 game framework that offers WebGL and Canvas rendering across desktop and mobile web browsers. Games can be compiled to iOS, Android and native apps by using 3rd party tools. You can use JavaScript or TypeScript for development."<sup><a href="https://it3049c.github.io/blog/phaser-vscode-intellisense#user-content-fn-(1)-16a60a" id="user-content-fnref-(1)-16a60a" data-footnote-ref="true" aria-describedby="footnote-label">1</a></sup></p>
 </blockquote>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="what-is-vs-code">What is VS Code?<a href="https://it3049c.github.io/blog/phaser-vscode-intellisense#what-is-vs-code" class="hash-link" aria-label="Direct link to What is VS Code?" title="Direct link to What is VS Code?">​</a></h3>
 <blockquote>
-<p>"Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. It comes with built-in support for JavaScript, TypeScript and Node.js and has a rich ecosystem of extensions for other languages (such as C++, C#, Java, Python, PHP, Go) and runtimes (such as .NET and Unity)"<sup><a href="https://it3049c.github.io/blog/phaser-vscode-intellisense#user-content-fn-(2)-261cfa" id="user-content-fnref-(2)-261cfa" data-footnote-ref="true" aria-describedby="footnote-label">2</a></sup></p>
+<p>"Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. It comes with built-in support for JavaScript, TypeScript and Node.js and has a rich ecosystem of extensions for other languages (such as C++, C#, Java, Python, PHP, Go) and runtimes (such as .NET and Unity)"<sup><a href="https://it3049c.github.io/blog/phaser-vscode-intellisense#user-content-fn-(2)-16a60a" id="user-content-fnref-(2)-16a60a" data-footnote-ref="true" aria-describedby="footnote-label">2</a></sup></p>
 </blockquote>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="what-is-intellisense">What is Intellisense?<a href="https://it3049c.github.io/blog/phaser-vscode-intellisense#what-is-intellisense" class="hash-link" aria-label="Direct link to What is Intellisense?" title="Direct link to What is Intellisense?">​</a></h3>
 <blockquote>
-<p>"IntelliSense is a general term for various code editing features including: code completion, parameter info, quick info, and member lists. IntelliSense features are sometimes called by other names such as "code completion", "content assist", and "code hinting."<sup><a href="https://it3049c.github.io/blog/phaser-vscode-intellisense#user-content-fn-(3)-261cfa" id="user-content-fnref-(3)-261cfa" data-footnote-ref="true" aria-describedby="footnote-label">3</a></sup></p>
+<p>"IntelliSense is a general term for various code editing features including: code completion, parameter info, quick info, and member lists. IntelliSense features are sometimes called by other names such as "code completion", "content assist", and "code hinting."<sup><a href="https://it3049c.github.io/blog/phaser-vscode-intellisense#user-content-fn-(3)-16a60a" id="user-content-fnref-(3)-16a60a" data-footnote-ref="true" aria-describedby="footnote-label">3</a></sup></p>
 </blockquote>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="how-to-enable-phaser-intellisense-in-vscode">How to enable Phaser Intellisense in VSCode?<a href="https://it3049c.github.io/blog/phaser-vscode-intellisense#how-to-enable-phaser-intellisense-in-vscode" class="hash-link" aria-label="Direct link to How to enable Phaser Intellisense in VSCode?" title="Direct link to How to enable Phaser Intellisense in VSCode?">​</a></h3>
 <p>We will need to make use of a TypeScript functionality to enable Intellisense.</p>
@@ -55,14 +55,14 @@
 </ul>
 <section data-footnotes="true" class="footnotes"><h2 class="anchor anchorWithStickyNavbar_LWe7 sr-only" id="footnote-label">Footnotes<a href="https://it3049c.github.io/blog/phaser-vscode-intellisense#footnote-label" class="hash-link" aria-label="Direct link to Footnotes" title="Direct link to Footnotes">​</a></h2>
 <ol>
-<li id="user-content-fn-(1)-261cfa">
-<p><a href="https://newdocs.phaser.io/docs/3.55.2" target="_blank" rel="noopener noreferrer">Phaser Framework</a>. <a href="https://it3049c.github.io/blog/phaser-vscode-intellisense#user-content-fnref-(1)-261cfa" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-(1)-16a60a">
+<p><a href="https://newdocs.phaser.io/docs/3.55.2" target="_blank" rel="noopener noreferrer">Phaser Framework</a>. <a href="https://it3049c.github.io/blog/phaser-vscode-intellisense#user-content-fnref-(1)-16a60a" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-(2)-261cfa">
-<p><a href="https://code.visualstudio.com/docs/editor/intellisense#:~:text=IntelliSense%20is%20a%20general%20term,%2C%20and%20%22code%20hinting.%22" target="_blank" rel="noopener noreferrer">What is Visual Studio Code?</a>. <a href="https://it3049c.github.io/blog/phaser-vscode-intellisense#user-content-fnref-(2)-261cfa" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-(2)-16a60a">
+<p><a href="https://code.visualstudio.com/docs/editor/intellisense#:~:text=IntelliSense%20is%20a%20general%20term,%2C%20and%20%22code%20hinting.%22" target="_blank" rel="noopener noreferrer">What is Visual Studio Code?</a>. <a href="https://it3049c.github.io/blog/phaser-vscode-intellisense#user-content-fnref-(2)-16a60a" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-(3)-261cfa">
-<p><a href="https://code.visualstudio.com/docs/editor/intellisense#:~:text=IntelliSense%20is%20a%20general%20term,%2C%20and%20%22code%20hinting.%22" target="_blank" rel="noopener noreferrer">IntelliSense in Visual Studio Code</a>. <a href="https://it3049c.github.io/blog/phaser-vscode-intellisense#user-content-fnref-(3)-261cfa" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-(3)-16a60a">
+<p><a href="https://code.visualstudio.com/docs/editor/intellisense#:~:text=IntelliSense%20is%20a%20general%20term,%2C%20and%20%22code%20hinting.%22" target="_blank" rel="noopener noreferrer">IntelliSense in Visual Studio Code</a>. <a href="https://it3049c.github.io/blog/phaser-vscode-intellisense#user-content-fnref-(3)-16a60a" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
 </li>
 </ol>
 </section>]]></content:encoded>
@@ -80,17 +80,17 @@
 <ul>
 <li>Click on the <strong>Actions</strong> Tab at the top of your repository.<!-- -->
 <ul>
-<li><img loading="lazy" alt="image001" src="https://it3049c.github.io/assets/images/image001-c457e135f0879f3c1d777ad59a0cba09.png" width="937" height="299" class="img_ev3q"></li>
+<li><img decoding="async" loading="lazy" alt="image001" src="https://it3049c.github.io/assets/images/image001-c457e135f0879f3c1d777ad59a0cba09.png" width="937" height="299" class="img_ev3q"></li>
 </ul>
 </li>
 <li>Navigate to the <strong>Assignment Checks</strong> action job.<!-- -->
 <ul>
-<li><img loading="lazy" alt="image002" src="https://it3049c.github.io/assets/images/image002-a5f375a1de6a48d4c77a0b92d23d07fd.png" width="1920" height="491" class="img_ev3q"></li>
+<li><img decoding="async" loading="lazy" alt="image002" src="https://it3049c.github.io/assets/images/image002-a5f375a1de6a48d4c77a0b92d23d07fd.png" width="1920" height="491" class="img_ev3q"></li>
 </ul>
 </li>
 <li>Copy the badge.<!-- -->
 <ul>
-<li><img loading="lazy" alt="image003" src="https://it3049c.github.io/assets/images/image003-71fe039993eaa563c28bcf5f0e40192f.png" width="1271" height="589" class="img_ev3q"></li>
+<li><img decoding="async" loading="lazy" alt="image003" src="https://it3049c.github.io/assets/images/image003-71fe039993eaa563c28bcf5f0e40192f.png" width="1271" height="589" class="img_ev3q"></li>
 </ul>
 </li>
 </ul>
