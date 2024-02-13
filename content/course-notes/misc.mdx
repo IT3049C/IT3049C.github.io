@@ -1,0 +1,11 @@
+---
+sidebar_position: 3
+title: Miscellaneous
+---
+
+## What is `rem` in CSS?
+In CSS , the `rem` unit is a relative length unit that stands for "root em." It is relative to the font-size of the root element of the document, which is typically the `<html>` element. Unlike the `em` unit, which is relative to the font-size of the element itself (or its parent, depending on the context), the `rem` unit is always relative to the root element's font-size.
+
+When you see `2.4 rem` in CSS, it means that the size (whether it be font-size, margin, padding, etc.) is 2.4 times the font-size of the root `<html>` element. For example, if the font-size of the `<html>` element is set to 16 pixels (which is a common default in browsers), then `2.4 rem` would be equivalent to `2.4 * 16 = 38.4 pixels`.
+
+This unit is particularly useful for creating scalable and responsive designs, as it allows you to define sizes that are consistent and relative to a single base value set at the root level. Changing the font-size of the root element can then scale up or down the size of all elements defined with `rem` units throughout the document.
