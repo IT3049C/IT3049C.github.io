@@ -2,13 +2,14 @@
 title: Overview
 sidebar_position: 1
 draft: false
+pagination_next: "wordle/layout"
 ---
 
 ## Learning outcomes
 1. Build a web-based game (Wordle) that utilizes a variety of concepts and technologies.
-2. Demonstrate ability to make network HTTP Requests using Fetch API.
-3. Demonstrate ability to manipulate the DOM using JavaScript.
-4. Demonstrate ability to create forms to and handling user input.
+2. Demonstrate ability to manipulate the DOM using JavaScript.
+3. Demonstrate ability to create forms to and handling user input.
+4. Demonstrate ability to make network HTTP Requests using Fetch API.
 5. Demonstrate understanding of event-oriented programming.
 
 ## Guidelines and Tips
@@ -18,54 +19,28 @@ draft: false
 * **Don't forget to fill out the self assessment on the README file**, and the feedback form at the end of the instructions.
 
 ## Instructions
-For this assignment you will be building Hangman. Your goal is to build this game using HTML, CSS, JavaScript, and the concepts/techniques covered to-date to build the game completely.
+For this assignment you will be building Wordle. Your goal is to build this game using HTML, CSS, JavaScript, and the concepts/techniques covered to-date to build the game completely.
 
 ### Game process
-The process of the game should be:
-1. Allow the user to specify the difficulty:
-    1. `easy` - for words of length 3-5
-    2. `medium` - for words of length 6-9
-    3. `hard` - for words of length 10-15
-2. On difficulty selection, we'll make a HTTP Request to [https://it3049c-hangman.fly.dev/](https://it3049c-hangman.fly.dev/) to get a word for the game.
-    1. You'll need to specify the difficulty in the query string of your url.
-        * [https://it3049c-hangman.fly.dev/?difficulty=easy](https://it3049c-hangman.fly.dev/?difficulty=easy)
-        * [https://it3049c-hangman.fly.dev/?difficulty=medium](https://it3049c-hangman.fly.dev/?difficulty=medium)
-        * [https://it3049c-hangman.fly.dev/?difficulty=hard](https://hangman-micro-service.herokuapp.com/?difficulty=hard)
-    2. **Hint**: Don’t hard-code all three URLs. Instead, use string template-ing to populate the query string.
-    3. It may take a few seconds to load initially.
-3. Show the word's length as underscores in place of letters which have not yet been guessed.
-    * for the word `BOOK` where the Letters `O`, and `K` have been guessed, this would look like `_ O O K `
-4. Show a display/paragraph/span containing previously guessed letters to the user
-    * `Previously Guessed: C, E, N, L`
-5. Show a display/Canvas drawing of the “Hangman”
-    a. use canvas API for the hangman drawing
-6. Allow user to input a letter to guess. with the following form validations.
-    * Alert the user if they enter a letter they have already guessed
-    * Alert the user if the provided input wasn't a letter
-    * Alert the user if they hit the submit without providing any input (length == 0)
-    * Alert the user if they provided more than one character.
-5. If the guessed letter is correct, show it in the proper place for the word display (the underscored placeholder)
-    a. check if the word has completely been guessed and announce winner if so.
-6. If the guessed letter is incorrect, draw the next body part on the hangman (whatever order and number of lines/body parts you wish)
-    a. check if all the body parts have been drawn to announce the game as lost.
-7. When the game is over, alert the user if they won or lost and give an option to reset the game
-8. For **1 Extra Credit point**, use tha animate.css library to animate the Hangman Title.
+If you're not familiar with the game Wordle, it is a popular web-based word puzzle game where players have the task of guessing a five-letter word within six attempts. After each guess, the game provides feedback in the form of colored tiles indicating how accurate the guess was: green for letters that are in the correct position, yellow for letters that are in the word but in the wrong position, and gray for letters that are not in the word at all. This feedback helps players narrow down the possibilities through deduction and pattern recognition. The game refreshes with a new word every day, encouraging players to return regularly to test their vocabulary and problem-solving skills.
+
+This assignment instructions is broken down into multiple parts to complete the game.
+- **Part1**: Create the Layout using HTML and CSS.
+- **Part2**: Create the Layout dynamically using JavaScript.
+- **Part3**: Create the Game Logic and Controllers using JavaScript.
+- **Part4**: Replace hard-coded elements of the game with HTTP network requests.
+- **Part5**: (not part of the game) Add a dark/mode.
 
 ### Starter Files
 ```
 .
-├── resources
-│   ├── css
-│   │   └── styles.css                <== Your additional styles
-│   ├── js
-│   │   ├── Hangman.js                <== Hangman Game Logic
-│   │   └── index.js                  <== DOM Manipulation and Event Listeners
-│   └── vendor                        <== External Libraries, such as Bootstrap and jQuery
-│       ├── bootstrap.min.css
-│       ├── bootstrap.min.js
-│       ├── fontawesome.min.css
-│       ├── jquery-3.5.1.slim.min.js
-│       └── popper.min.js
+├── assets
+│   ├── styles
+│   │   └── style.css                <== Your additional styles
+│   ├── scripts
+│   │   ├── dark-mode-toggle.js                <== Wordle Game Logic
+│   │   ├── game.js                <== Wordle Game Logic
+│   │   └── main.js                  <== DOM Manipulation and Event Listeners
 ├── index.html                        <== The index.html - Built for you.
 └── README.md                         <== Don't Forget the self-reflection evaluation
 ```
