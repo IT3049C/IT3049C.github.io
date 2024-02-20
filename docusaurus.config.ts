@@ -93,8 +93,8 @@ const config: Config = {
         editCurrentVersion: true,
         sidebarPath: 'content/syllabus/sidebarsSyllabus.ts',
         remarkPlugins: [require('mdx-mermaid')],
-        showLastUpdateAuthor: true,
-        showLastUpdateTime: true,
+        showLastUpdateAuthor: false,
+        showLastUpdateTime: false,
       }),
     ],
     [
