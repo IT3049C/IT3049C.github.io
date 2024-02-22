@@ -2,9 +2,20 @@
 sidebar_position: 4
 title: React
 ---
-- Components
-  - using vanilla JS to create a component
-  - using React to create a component
+
+- Let's create a basic Hello World app using HTML.
+
+```html
+<body>
+  <div id="root">
+    <div class="container">
+      Hello World
+    </div>
+  </div>
+</body>
+```
+
+Let's recreate that using JS
 
 ```html
 <body>
@@ -15,17 +26,86 @@ title: React
     element.textContent = 'Hello World'
     element.className = 'container'
     rootElement.append(element)
+  </script>
+</body>
+```
+Let's recreate that using JS and a function
 
-    function Text(text) {
+```html
+<body>
+  <div id="root"></div>
+  <script type="module">
+    const rootElement = document.getElementById('root')
+
+    function HelloWorld() {
       const element = document.createElement('div')
-      element.textContent = text
+      element.textContent = 'Hello World'
+      element.className = 'container'
       return element
     }
+
+    rootElement.append(HelloWorld())
   </script>
 </body>
 ```
 
-using React
+We can append it multiple times and it will work
+
+- Let's make this a bit more generic, we can call it a Text component.
+  - provide the text as a parameter
+  - provide the class as a parameter
+
+```html
+<body>
+  <div id="root"></div>
+  <script type="module">
+    const rootElement = document.getElementById('root')
+
+    function Text(text, className) {
+      const element = document.createElement('div')
+      element.textContent = text
+      element.className = className
+      return element
+    }
+
+    rootElement.append(Text('Hello World', 'container'))
+    rootElement.append(Text('Goodbye World','container'))
+  </script>
+</body>
+```
+Let's use object destructuring to make it a bit more readable
+
+```html
+<body>
+  <div id="root"></div>
+  <script type="module">
+    const rootElement = document.getElementById('root')
+
+    function Text({text, className}) {
+      const element = document.createElement('div')
+      element.textContent = text
+      element.className = className
+      return element
+    }
+
+    rootElement.append(Text({text: 'Hello World', className: 'container'}))
+    rootElement.append(Text({text: 'Goodbye World', className: 'container'}))
+  </script>
+</body>
+```
+
+
+This is all great but, this is not the original intent of JS and it's a bit taxing on the browser to do this. This is where React comes in.
+
+Now what if I want to add children elements to those Text components?
+
+React introduces a new way to create components and manage the DOM.
+
+Let's do the same things with React.
+
+- I'm not setting the app up with a bundler, so I'm going to use the UMD build of React and ReactDOM. (just for demo purposes, you should use a bundler in a real app.)
+
+I'm using unpkg to get the UMD builds of React and ReactDOM.
 
 ```html
 <body>
@@ -34,10 +114,12 @@ using React
   <script src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
   <script type="module">
     const rootElement = document.getElementById('root')
+
     const element = React.createElement('div', {
-      className: 'container',
-      children: 'Hello World',
+      children: `Hello World`,
+      className: `container`,
     })
+
     ReactDOM.createRoot(rootElement).render(element)
   </script>
 </body>
@@ -65,10 +147,32 @@ We can nest components in React
 </body>
 ```
 
+let's just get rid of the rootElement variable
+
+```html
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
+  <script type="module">
+    const element = React.createElement('div', {
+      className: 'container',
+      children: [
+        React.createElement('span', null, 'Hello'),
+        ' ',
+        React.createElement('span', null, 'World'),
+      ],
+    })
+    ReactDOM.createRoot(document.getElementById('root')).render(element)
+  </script>
+</body>
+```
+
+so this is a nice thing that we couldn't easily do with vanilla JS, but honestly it looks tedious and not very readable.
 React introduces JSX, which is a syntax extension for JavaScript. It looks like HTML, but it's actually JavaScript.
 
 ```html
-  <body>
+<body>
   <div id="root"></div>
   <script src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
@@ -79,6 +183,8 @@ React introduces JSX, which is a syntax extension for JavaScript. It looks like 
   </script>
 </body>
 ```
+
+Now because this is JS, we can use variables and expressions in our JSX.
 
 Interpolation
 
@@ -117,7 +223,7 @@ Interpolation
   </body>
   ```
 
-Create a custom component
+Similar to the Text component we created earlier, we can create a component in React.
 
 ```html
 <body>
@@ -185,6 +291,33 @@ Using JSX
 
     const element = (
       <div className="container">
+        <Message>Hello World</Message>
+        <Message>Goodbye World</Message>
+      </div>
+    )
+
+    ReactDOM.createRoot(document.getElementById('root')).render(element)
+  </script>
+</body>
+```
+
+Let's take a look at how we can style our components.
+```html
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+  <script type="text/babel">
+    function Message({children}) {
+      const style = {
+        color: 'red',
+      }
+      return <div style={style}>{children}</div>
+    }
+
+    const element = (
+      <div>
         <Message>Hello World</Message>
         <Message>Goodbye World</Message>
       </div>
