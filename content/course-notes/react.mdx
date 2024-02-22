@@ -1,0 +1,198 @@
+---
+sidebar_position: 4
+title: React
+---
+- Components
+  - using vanilla JS to create a component
+  - using React to create a component
+
+```html
+<body>
+  <div id="root"></div>
+  <script type="module">
+    const rootElement = document.getElementById('root')
+    const element = document.createElement('div')
+    element.textContent = 'Hello World'
+    element.className = 'container'
+    rootElement.append(element)
+
+    function Text(text) {
+      const element = document.createElement('div')
+      element.textContent = text
+      return element
+    }
+  </script>
+</body>
+```
+
+using React
+
+```html
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
+  <script type="module">
+    const rootElement = document.getElementById('root')
+    const element = React.createElement('div', {
+      className: 'container',
+      children: 'Hello World',
+    })
+    ReactDOM.createRoot(rootElement).render(element)
+  </script>
+</body>
+```
+
+We can nest components in React
+
+```html
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
+  <script type="module">
+    const rootElement = document.getElementById('root')
+    const element = React.createElement('div', {
+      className: 'container',
+      children: [
+        React.createElement('span', null, 'Hello'),
+        ' ',
+        React.createElement('span', null, 'World'),
+      ],
+    })
+    ReactDOM.createRoot(rootElement).render(element)
+  </script>
+</body>
+```
+
+React introduces JSX, which is a syntax extension for JavaScript. It looks like HTML, but it's actually JavaScript.
+
+```html
+  <body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+  <script type="text/babel">
+    const element = <div className="container">Hello World</div>
+    ReactDOM.createRoot(document.getElementById('root')).render(element)
+  </script>
+</body>
+```
+
+Interpolation
+
+```html
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+  <script type="text/babel">
+    const children = 'Hello World'
+    const className = 'container'
+    const element = <div className={className}>{children}</div>
+    ReactDOM.createRoot(document.getElementById('root')).render(element)
+  </script>
+</body>
+```
+
+- Props
+  - passing props to a component
+  - using props in a component
+
+  ```html
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+    <script type="text/babel">
+      const children = 'Hello World'
+      const className = 'container'
+      const props = {children, className}
+      const element = <div {...props} />
+      ReactDOM.createRoot(document.getElementById('root')).render(element)
+    </script>
+  </body>
+  ```
+
+Create a custom component
+
+```html
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+  <script type="text/babel">
+    // NOTE: this is NOT being used as a component. We're not quite there yet.
+    function message({children}) {
+      return <div className="message">{children}</div>
+    }
+
+    const element = (
+      <div className="container">
+        {message({children: 'Hello World'})}
+        {message({children: 'Goodbye World'})}
+      </div>
+    )
+
+    ReactDOM.createRoot(document.getElementById('root')).render(element)
+  </script>
+</body>
+```
+
+Using createComponent
+
+```html
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+  <script type="text/babel">
+    // This is being used as a component. But it's still not quite awesome yet.
+    function message({children}) {
+      return <div className="message">{children}</div>
+    }
+
+    const element = (
+      <div className="container">
+        {React.createElement(message, {children: 'Hello World'})}
+        {React.createElement(message, {children: 'Goodbye World'})}
+      </div>
+    )
+
+    ReactDOM.createRoot(document.getElementById('root')).render(element)
+  </script>
+</body>
+```
+
+Using JSX
+
+```html
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+  <script type="text/babel">
+    // This is being used as a component 🎉
+    function Message({children}) {
+      return <div className="message">{children}</div>
+    }
+
+    const element = (
+      <div className="container">
+        <Message>Hello World</Message>
+        <Message>Goodbye World</Message>
+      </div>
+    )
+
+    ReactDOM.createRoot(document.getElementById('root')).render(element)
+  </script>
+</body>
+```
+
+
