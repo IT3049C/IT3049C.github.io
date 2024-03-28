@@ -4,7 +4,7 @@ sidebar_position: 1
 draft: false
 pagination_next: "game-hub/setup"
 ---
-This lab builds on the [Rock-Paper-Scissors in React](/assignments/rps-in-react) assignments. In this assignment we start using [React Router](//reactrouter.com/en/main) to create multiple pages. This assignments is also a building block for the [final project (instructions to be posted soon)](/assignments/final-project). The Game Hub is ultimately going to be a web application that allows users to play multiple games (all built with [React](//react.dev)).
+This lab builds on the [Rock-Paper-Scissors in React](/assignments/rps-in-react) assignments. In this assignment we start using [React Router](//reactrouter.com/en/main) to create multiple pages. This assignments is also a building block for the final project *(instructions to be posted soon)*. The Game Hub is ultimately going to be a web application that allows users to play multiple games (all built with [React](//react.dev)).
 
 ---
 
