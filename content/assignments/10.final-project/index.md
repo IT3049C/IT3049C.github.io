@@ -7,7 +7,8 @@ draft: false
 The Game Hub is a web application that allows users to play multiple games. The Game Hub is a single-page application (SPA) that uses the [React.js](//react.dev) JavaScript Library.
 
 ## Guidelines
-- You will need to work in pairs for this project.
+- As outlined by the syllabus, 30% of your grade in this class will be based on a final project.
+- You will need to work in pairs (teams of 2s) for this project.
   - If you'll work on on a team of 3, you'll need to get approval from the instructor and the team will need to do more work.
 
 ## Features
